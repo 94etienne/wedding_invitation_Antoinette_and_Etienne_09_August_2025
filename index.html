@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Invitation - Ubutumire bw'Ubukwe</title>
   <style>
     body {
@@ -14,11 +15,18 @@
 
     .main-container {
       display: flex;
+      flex-direction: row;
       max-width: 1400px;
       margin: 20px auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       position: relative;
       overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
     }
 
     .main-container::before {
@@ -49,6 +57,16 @@
       background: white;
       position: relative;
       box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 100%;
+      }
+      .kinyarwanda {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
     }
 
     .container::before {
@@ -83,6 +101,12 @@
       margin-bottom: 20px;
       position: relative;
       z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
     }
 
     h1::before, h1::after {
@@ -157,6 +181,12 @@
       padding: 10px 0;
     }
 
+    @media (max-width: 768px) {
+      .names {
+        font-size: 18px;
+      }
+    }
+
     .names::before, .names::after {
       content: "";
       position: absolute;
@@ -180,6 +210,15 @@
       justify-content: space-between;
       padding: 10px 0;
       border-top: 1px solid #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .event {
+        flex-direction: column;
+      }
+      .event div {
+        margin-bottom: 15px;
+      }
     }
 
     .event:last-child {
@@ -209,6 +248,13 @@
       justify-content: space-between;
       margin-top: 10px;
       gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .phone-container {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
 
     .phone {
@@ -460,7 +506,7 @@
   </div>
 </div>
 
-<!-- <button class="export-btn" id="exportBtn">Export as PNG / Sohora nka PNG</button> -->
+<button class="export-btn" id="exportBtn">Export as PNG / Sohora nka PNG</button>
 
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script>
