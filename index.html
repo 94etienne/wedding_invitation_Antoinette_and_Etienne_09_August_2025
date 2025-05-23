@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Invitation - Ubutumire bw'Ubukwe</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fefefe;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-container {
+      display: flex;
+      max-width: 1400px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: linear-gradient(90deg, #f3e7e9 0%, #e3eeff 50%, #f3e7e9 100%);
+      z-index: 1;
+    }
+
+    .main-container::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background: linear-gradient(90deg, #f3e7e9 0%, #e3eeff 50%, #f3e7e9 100%);
+      z-index: 1;
+    }
+
+    .container {
+      width: 50%;
+      padding: 30px;
+      background: white;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid transparent;
+      background: linear-gradient(white, white) padding-box,
+                  repeating-linear-gradient(45deg, #d4af37 0, #d4af37 5px, #f9f295 5px, #f9f295 10px) border-box;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .kinyarwanda {
+      border-right: 1px solid #eee;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      color: #333;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1::before, h1::after {
+      content: "❦";
+      color: #d4af37;
+      margin: 0 15px;
+      font-size: 24px;
+    }
+
+    .rings-container {
+      perspective: 1000px;
+      text-align: center;
+      margin: 30px auto;
+      height: 150px;
+    }
+
+    .rings-3d {
+      position: relative;
+      width: 200px;
+      height: 150px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      animation: rotate 15s infinite linear;
+    }
+
+    .ring {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 8px solid #c0c0c0;
+      box-shadow: 
+        0 0 10px rgba(192, 192, 192, 0.8),
+        inset 0 0 10px rgba(192, 192, 192, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.5) inset,
+        0 0 30px rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #e6e6e6 0%, #c0c0c0 50%, #e6e6e6 100%);
+    }
+
+    .ring:before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      z-index: -1;
+    }
+
+    .ring-1 {
+      transform: rotateY(30deg) translateZ(0);
+      left: 40px;
+    }
+
+    .ring-2 {
+      transform: rotateY(-30deg) translateZ(0);
+      left: 100px;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .names {
+      text-align: center;
+      font-size: 20px;
+      margin: 15px 0;
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .names::before, .names::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    }
+
+    .names::before {
+      top: 0;
+    }
+
+    .names::after {
+      bottom: 0;
+    }
+
+    .event {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
+    }
+
+    .event:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      padding-top: 20px;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, #d4af37, transparent);
+    }
+
+    .phone-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      gap: 20px;
+    }
+
+    .phone {
+      font-weight: bold;
+      font-size: 16px;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 8px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .and {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px;
+      color: #d4af37;
+    }
+
+    .logo {
+      text-align: center;
+      font-weight: bold;
+      font-size: 22px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .logo span {
+      font-size: 26px;
+      color: #444;
+    }
+
+    .logo::after {
+      content: "✿";
+      color: #d4af37;
+      font-size: 20px;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .logo::before {
+      content: "✿";
+      color: #d4af37;
+      font-size: 20px;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .export-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .export-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Corner decorations */
+    .container::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4af37' d='M100,0 L100,40 C60,40 60,60 40,60 L0,60 L0,0 Z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      top: 0;
+      right: 0;
+      transform: rotate(90deg);
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .kinyarwanda::before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4af37' d='M100,0 L100,40 C60,40 60,60 40,60 L0,60 L0,0 Z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      top: 0;
+      left: 0;
+      transform: rotate(0deg);
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .english::after {
+      transform: rotate(90deg);
+    }
+
+    .english::before {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4af37' d='M100,0 L100,40 C60,40 60,60 40,60 L0,60 L0,0 Z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 0;
+      right: 0;
+      transform: rotate(180deg);
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .kinyarwanda::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d4af37' d='M100,0 L100,40 C60,40 60,60 40,60 L0,60 L0,0 Z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 0;
+      left: 0;
+      transform: rotate(270deg);
+      opacity: 0.7;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-container">
+  <!-- Kinyarwanda Version -->
+  <div class="container kinyarwanda" id="invitation-rw">
+    <div class="logo">
+      <span>A</span> & <span>E</span>
+    </div>
+
+    <h1>Ubutumire bw'Ubukwe</h1>
+
+    <div class="rings-container">
+      <div class="rings-3d">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+      </div>
+    </div>
+
+    <p style="text-align: center;">
+      Umuryango wa <strong>NTAKAZIRAHO Samson</strong> hamwe n'umuryango wa <strong>Jean Damascène HABIMANA</strong> uhagarariwe na <strong>Jean Bosco TWAGIRIMANA</strong>,
+      bafite ibyishimo byo kubatumira mu bukwe bw'abana babo:
+    </p>
+
+    <div class="names">
+      <strong>Antoinette ABIJURU</strong> <span class="and">&</span> <strong>Etienne NTAMBARA</strong>
+    </div>
+
+    <h2>BUZABA: 09 - 08 - 2025</h2>
+
+    <div class="event">
+      <div>
+        <strong>09:00 AM:</strong><br>
+        Gusaba no Gukwa<br>
+        <em>ahazwi nka Centre St Jean Baptiste (Procure)</em><br>
+        Imbere y'amarembo ya Groupe Officiel de Butare.
+      </div>
+      <div>
+        <strong>02:00 PM:</strong><br>
+        Gusezerana imbere y'IMANA<br>
+        <em>mu rusengero rwa ADEPR Taba (mu mujyi wa Butare)</em>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        Nyuma y'ibi birori, abatumirwa bazakirirwa<br>
+        <strong>Centre St Jean Baptiste (Procure)</strong> Imbere y'amarembo ya Groupe Officiel de Butare.
+      </p>
+      <div class="phone-container">
+        <div class="phone">
+          +250-786-076-393<br><small>(Antoinette)</small>
+        </div>
+        <div class="phone">
+          +250-783-716-761<br><small>(Etienne)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- English Version -->
+  <div class="container english" id="invitation-en">
+    <div class="logo">
+      <span>A</span> & <span>E</span>
+    </div>
+
+    <h1>Wedding Invitation</h1>
+
+    <div class="rings-container">
+      <div class="rings-3d">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+      </div>
+    </div>
+
+    <p style="text-align: center;">
+      The family of <strong>NTAKAZIRAHO Samson</strong> and the family of <strong>Jean Damascène HABIMANA</strong> represented by <strong>Jean Bosco TWAGIRIMANA</strong>,
+      are delighted to invite you to the wedding of their children:
+    </p>
+
+    <div class="names">
+      <strong>Antoinette ABIJURU</strong> <span class="and">&</span> <strong>Etienne NTAMBARA</strong>
+    </div>
+
+    <h2>WILL TAKE PLACE: 09 - 08 - 2025</h2>
+
+    <div class="event">
+      <div>
+        <strong>09:00 AM:</strong><br>
+        Traditional Ceremony<br>
+        <em>Centre St Jean Baptiste (Procure)</em><br>
+        at the entrance of Groupe Officiel de Butare.
+      </div>
+      <div>
+        <strong>02:00 PM:</strong><br>
+        Religious Wedding<br>
+        <em>at ADEPR Taba Church (Butare city)</em>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        After the ceremonies, guests will be received at<br>
+        <strong>Centre St Jean Baptiste (Procure)</strong> at the entrance of Groupe Officiel de Butare.
+      </p>
+      <div class="phone-container" style="margin-top: 30px;">
+        <div class="phone">
+          +250-786-076-393<br><small>(Antoinette)</small>
+        </div>
+        <div class="phone">
+          +250-783-716-761<br><small>(Etienne)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="export-btn" id="exportBtn">Export as PNG / Sohora nka PNG</button>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const rings3d = document.querySelectorAll('.rings-3d');
+    const exportBtn = document.getElementById('exportBtn');
+    const mainContainer = document.querySelector('.main-container');
+
+    // Pause animation on hover for both versions
+    rings3d.forEach(ring => {
+      ring.addEventListener('mouseenter', function() {
+        this.style.animationPlayState = 'paused';
+      });
+      
+      ring.addEventListener('mouseleave', function() {
+        this.style.animationPlayState = 'running';
+      });
+    });
+    
+    // Mouse move interaction for both versions
+    document.addEventListener('mousemove', function(e) {
+      const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+      const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+      rings3d.forEach(ring => {
+        ring.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      });
+    });
+
+    // Enhanced Export as PNG functionality
+    exportBtn.addEventListener('click', async function() {
+      // Change button text to indicate processing
+      const originalText = exportBtn.textContent;
+      exportBtn.textContent = 'Processing...';
+      exportBtn.disabled = true;
+      
+      try {
+        // Temporarily pause the animations for the screenshot
+        rings3d.forEach(ring => {
+          ring.style.animationPlayState = 'paused';
+        });
+
+        // Add temporary class for better export styling
+        mainContainer.classList.add('exporting');
+        
+        // Create canvas with higher quality
+        const canvas = await html2canvas(mainContainer, {
+          scale: 2, // Higher resolution
+          logging: false,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#fefefe'
+        });
+
+        // Create download link
+        const link = document.createElement('a');
+        link.download = 'wedding-invitation.png';
+        link.href = canvas.toDataURL('image/png');
+        
+        // Trigger download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+      } catch (error) {
+        console.error('Error generating PNG:', error);
+        alert('Error generating image. Please try again.');
+      } finally {
+        // Restore original state
+        exportBtn.textContent = originalText;
+        exportBtn.disabled = false;
+        rings3d.forEach(ring => {
+          ring.style.animationPlayState = 'running';
+        });
+        mainContainer.classList.remove('exporting');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
