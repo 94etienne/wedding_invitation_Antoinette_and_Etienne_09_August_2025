@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wedding Invitation - Ubutumire bw'Ubukwe (Antoinette ABIJURI and Etienne NTAMBARA 09-August-2025)</title>
+  <title>Wedding Invitation - Ubutumire bw'Ubukwe</title>
   <style>
     body {
       font-family: 'Georgia', serif;
@@ -392,6 +392,67 @@
       opacity: 0.7;
       z-index: 0;
     }
+    
+    /* Countdown timer styles */
+    .countdown-container {
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .countdown-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 60px;
+    }
+    
+    .countdown-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d4af37;
+      background-color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    }
+    
+    .countdown-label {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #666;
+      text-transform: uppercase;
+    }
+    
+    @media (max-width: 768px) {
+      .countdown {
+        flex-wrap: wrap;
+      }
+      
+      .countdown-item {
+        min-width: 45px;
+      }
+      
+      .countdown-number {
+        font-size: 20px;
+        padding: 6px 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -399,10 +460,6 @@
 <div class="main-container">
   <!-- Kinyarwanda Version -->
   <div class="container kinyarwanda" id="invitation-rw">
-<!-- <div class="logo" style="margin-top: 6px;">
-      <span>A</span> & <span>E</span>
-    </div>  -->
-
     <h1>Ubutumire bw'Ubukwe</h1>
 
     <div class="rings-container">
@@ -424,6 +481,29 @@
     </div>
 
     <h2>Buzaba: 09 - 08 - 2025</h2>
+    
+    <!-- Countdown Timer in Kinyarwanda -->
+    <div class="countdown-container">
+      <div class="countdown-title">Igihe Gisigaye:</div>
+      <div class="countdown" id="countdown-rw">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days-rw">00</div>
+          <div class="countdown-label">Iminsi</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours-rw">00</div>
+          <div class="countdown-label">Amasaha</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes-rw">00</div>
+          <div class="countdown-label">Iminota</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="seconds-rw">00</div>
+          <div class="countdown-label">Amasegonda</div>
+        </div>
+      </div>
+    </div>
 
     <div class="event">
       <div>
@@ -458,10 +538,6 @@
 
   <!-- English Version -->
  <div class="container english" id="invitation-en">
-<!--     <div class="logo" style="margin-top: 6px;">
-      <span>A</span> & <span>E</span>
-    </div> -->
-
     <h1>Wedding Invitation</h1>
 
     <div class="rings-container">
@@ -481,6 +557,29 @@
     </div>
 
     <h2>Will take place: 09 - 08 - 2025</h2>
+    
+    <!-- Countdown Timer in English -->
+    <div class="countdown-container">
+      <div class="countdown-title">Time remaining until the wedding:</div>
+      <div class="countdown" id="countdown-en">
+        <div class="countdown-item">
+          <div class="countdown-number" id="days-en">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="hours-en">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="minutes-en">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-number" id="seconds-en">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+    </div>
 
     <div class="event">
       <div>
@@ -591,6 +690,38 @@
         mainContainer.classList.remove('exporting');
       }
     });
+    
+    // Countdown timer function
+    function updateCountdown() {
+      // Set the wedding date (August 9, 2025)
+      const weddingDate = new Date('2025-08-09T00:00:00');
+      const now = new Date();
+      
+      // Calculate the difference in milliseconds
+      const diff = weddingDate - now;
+      
+      // Calculate days, hours, minutes, seconds
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      // Update Kinyarwanda version
+      document.getElementById('days-rw').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours-rw').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes-rw').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds-rw').textContent = seconds.toString().padStart(2, '0');
+      
+      // Update English version
+      document.getElementById('days-en').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours-en').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes-en').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds-en').textContent = seconds.toString().padStart(2, '0');
+    }
+    
+    // Update countdown immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
   });
 </script>
 
